@@ -1,0 +1,6 @@
+{% block ProductsBlock %}
+    {% for currentProduct in products %}
+        {% include "blog/productInList.html" with currentProduct=currentProduct %}
+
+    {% endfor %}
+{% endblock %}

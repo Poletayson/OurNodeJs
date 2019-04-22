@@ -1,0 +1,32 @@
+{% extends "blog/basePage.html" %}
+{#{% use "productInList.html" %}#}
+
+{% block content%}
+    <div id="content-wrapper" class="myColorElem" >
+        <div class="bg-white mx-2 ">
+            <div class="row"></div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" id="Search" placeholder="Название">
+            <button onclick="search()"  type="submit">Поиск</button>
+{#            <form onclick="search()"  method="GET"> <button type="submit">Поиск</button></form>#}
+        </div>
+
+
+        <div class="form-group" id="Prods">
+            {% for currentProduct in products %}
+                {% include "blog/productInList.html" with currentProduct=currentProduct %}
+
+{#                {% block productInList %}#}
+{##}
+{#                    {{ parent(currentMaterial)}}#}
+{##}
+{#                {% endblock %}#}
+
+            {% endfor %}
+        </div>
+
+        </div>
+    </div>
+
+{% endblock %}

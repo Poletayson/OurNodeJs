@@ -13,22 +13,22 @@
                 <div class="d-inline col-md-4 col-sm-12">
 
                     <img src="<%= product.img%>" alt="Example" class="img-fluid"/>
-                    <br>
-                    <br>
-                    {% csrf_token %}
-                    <form enctype="multipart/form-data" method="post">
-                        <p>
-                        <div id="btn">
-                            <label for="files">Выбрать</label>
-                        </div>
-                        <div id="ok">
-                            <label for="buttonOk">Загрузить</label>
-                        </div>
-                        <input id="files" style="visibility:hidden;" name="image" accept="image/*" type="file">
-                        <br>
-                        <input id="buttonOk" style="visibility:hidden;" type="submit" value="Отправить">
-                        </p>
-                    </form>
+                    <!--<br>-->
+                    <!--<br>-->
+                    <!--{% csrf_token %}-->
+                    <!--<form enctype="multipart/form-data" method="post">-->
+                        <!--<p>-->
+                        <!--<div id="btn">-->
+                            <!--<label for="files">Выбрать</label>-->
+                        <!--</div>-->
+                        <!--<div id="ok">-->
+                            <!--<label for="buttonOk">Загрузить</label>-->
+                        <!--</div>-->
+                        <!--<input id="files" style="visibility:hidden;" name="image" accept="image/*" type="file">-->
+                        <!--<br>-->
+                        <!--<input id="buttonOk" style="visibility:hidden;" type="submit" value="Отправить">-->
+                        <!--</p>-->
+                    <!--</form>-->
                 </div>
 
                 <div class="d-inline col-md-8 col-sm-12">
@@ -38,40 +38,37 @@
                             <label for="hd-1" class="h3">Характеристики</label>
                             <div class="row">
 
-                                <form name="test" action="save" method="post">
+                                <form name="test" action= "<%= product._id%>/save" method="post">
                                 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Картинка</label>
 
                                 <div class="col-sm-12">
-                                    <input class="form-control form-control-sm" id="img" value="<%= product.img%>">
+                                    <input class="form-control form-control-sm" name="img"  id="img" value="<%= product.img%>">
                                 </div>
 
 
                                 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Название</label>
 
                                 <div class="col-sm-12">
-                                    <input class="form-control form-control-sm" id="title" value="<%= product.title%>">
+                                    <input class="form-control form-control-sm" name="title" id="title" value="<%= product.title%>">
                                 </div>
 
                                 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Код товара</label>
                                 <div class="col-sm-12">
-                                    <input class="form-control form-control-sm" id="code" placeholder="000000" value="<%= product.code%>">
+                                    <input class="form-control form-control-sm" name="code"  id="code" placeholder="000000" value="<%= product.code%>">
                                 </div>
 
                                 <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm">Количество на складе</label>
                                 <div class="col-sm-12">
-                                    <input class="form-control form-control-sm" id="balance" placeholder="0" value="<%= product.balance%>">
+                                    <input class="form-control form-control-sm" name="balance"  id="balance" placeholder="0" value="<%= product.balance%>">
                                 </div>
 
                                 <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm">Описание товара</label>
                                 <div class="col-sm-12">
-                                    <textarea id="description" class="form-control text-justify"  rows="5"><%= product.description%></textarea>
+                                    <textarea name="description"  id="description" class="form-control text-justify"  rows="5"><%= product.description%></textarea>
                                 </div>
 
                                 <div class="col-sm-12 text-center">
-
-
-
-                                        <input type="submit" class="btn btn-success my-2" onclick="saveInfo(<%= product._id%>)" name="name" value="Применить" />
+                                        <input type="submit" class="btn btn-success my-2" name="name" value="Применить" />
 
 
                                 </div>

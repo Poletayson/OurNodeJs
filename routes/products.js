@@ -1,24 +1,28 @@
 var express = require('express');
 var router = express.Router();
 
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+var exp = require("../app.js");
 
+// const mongoose = require("mongoose");
+// const Schema = mongoose.Schema;
+//
+//
+//
+// // установка схемы
+// const productSch = new Schema({
+//     title: String,
+//     code: String,
+//     description: String,
+//     img: String,
+//     balance: Number
+// });
+//
+// // подключение
+// mongoose.connect("mongodb://localhost/ourdb", { useNewUrlParser: true });
+// const Product = mongoose.model("Product", productSch);
 
-
-// установка схемы
-const productSch = new Schema({
-    title: String,
-    code: String,
-    description: String,
-    img: String,
-    balance: Number
-});
-
-// подключение
-mongoose.connect("mongodb://localhost/ourdb", { useNewUrlParser: true });
-const Product = mongoose.model("Product", productSch);
-
+// const Product = module.exports.Product;
+const Product = exp.Product;
 
 // router.get('/', function(req, res, next) {
 //     let template = ejs.compile(str, options);

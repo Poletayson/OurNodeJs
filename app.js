@@ -4,23 +4,34 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-// const mongoose = require("mongoose");
-// const Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+
+
+// установка схемы
+const productSch = new Schema({
+    title: String,
+    code: String,
+    description: String,
+    img: String,
+    balance: Number
+});
+
+// подключение
+mongoose.connect("mongodb://localhost/ourdb", { useNewUrlParser: true });
+//const Product = mongoose.model("Product", productSch);
+
+module.exports.Product = mongoose.model("Product", productSch);
+
+
+
+
+// // /stylesheets/css/sb-admin.css
 //
-//
-//
-// // установка схемы
-// const productSch = new Schema({
-//     title: String,
-//     code: String,
-//     description: String,
-//     img: String,
-//     balance: Number
-// });
-//
-// // подключение
-// mongoose.connect("mongodb://localhost/ourdb", { useNewUrlParser: true });
-// const Product = mongoose.model("Product", productSch);
+// var product =
+
+
 
 // const product = new Product({
 //     title: "Test",
@@ -40,17 +51,10 @@ var logger = require('morgan');
 
 
 
-
-
-
-
-
-
-
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
+var oneProductsRouter = require('./routes/oneProduct');
 var ejs = require('ejs');
 
 var app = express();
@@ -69,6 +73,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
+app.use('/products/:idd', oneProductsRouter);
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

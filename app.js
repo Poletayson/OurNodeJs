@@ -75,9 +75,10 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
+app.use('/products/add', productsRouter);
+app.use('/products/add/do', productsRouter);
 app.use('/products/:idd', oneProductsRouter);
 app.use('/products/:idd/save', oneProductsRouter);
-
 
 
 

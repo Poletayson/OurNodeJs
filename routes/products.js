@@ -55,4 +55,51 @@ router.get('/', function(req, res, next) {
 
 });
 
+
+router.get('/add', function(req, res, next) {
+
+    res.render('productAdd', {
+
+    });
+
+
+});
+
+
+/* GET home page. */
+router.post('/add/do', function(req, res, next) {
+    var img = req.body.img;
+    var title = req.body.title;
+    var code = req.body.code;
+    var balance = req.body.balance;
+    var description = req.body.description;
+
+
+    const product = new Product({
+    title: title,
+    code: code,
+    description: description,
+    img: img,
+    balance: balance
+});
+
+product.save(function(err){
+    //mongoose.disconnect();  // отключение от базы данных
+    if(err) return console.log(err);
+    console.log("Сохранен объект", product);
+    var str = '/products';
+    res.redirect(str);
+
+});
+
+
+
+
+
+
+
+
+});
+
+
 module.exports = router;

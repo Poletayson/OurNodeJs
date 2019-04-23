@@ -38,7 +38,7 @@
                             <label for="hd-1" class="h3">Характеристики</label>
                             <div class="row">
 
-
+                                <form name="test" action="save" method="post">
                                 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Картинка</label>
 
                                 <div class="col-sm-12">
@@ -69,13 +69,13 @@
 
                                 <div class="col-sm-12 text-center">
 
-                                    <form name="test">
+
 
                                         <input type="submit" class="btn btn-success my-2" onclick="saveInfo(<%= product._id%>)" name="name" value="Применить" />
-                                        </form>
+
 
                                 </div>
-
+                                </form>
                             </div>
                             <br/>
                             <input type="checkbox"  id="hd-2" class="hide"/>
